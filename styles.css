@@ -108,10 +108,6 @@ body.drawer-open {
   animation: mascot-polished-entry 1200ms 220ms cubic-bezier(0.2, 0.9, 0.2, 1) both;
 }
 
-.jumbito-character * {
-  vector-effect: non-scaling-stroke;
-}
-
 .hello-spark {
   position: absolute;
   display: block;
@@ -139,88 +135,6 @@ body.drawer-open {
   right: 8%;
   top: 43%;
   transform: rotate(38deg);
-}
-
-.jumbito-shadow ellipse {
-  fill: rgba(44, 32, 48, 0.12);
-}
-
-.ear,
-.head,
-.belly,
-.leg,
-.arm,
-.hand,
-.trunk {
-  stroke: #2f3036;
-  stroke-width: 7;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-.ear {
-  fill: #dfe3e8;
-}
-
-.ear.left-ear,
-.ear.right-ear {
-  transform-box: fill-box;
-  transform-origin: center;
-  animation: ear-soft 1700ms 900ms ease-in-out 2;
-}
-
-.head,
-.leg,
-.arm,
-.hand,
-.trunk {
-  fill: #eef1f4;
-}
-
-.belly {
-  fill: #ffffff;
-}
-
-.left-arm {
-  fill: none;
-}
-
-.wave-arm {
-  transform-box: fill-box;
-  transform-origin: 18% 74%;
-  animation: svg-wave 520ms 520ms ease-in-out 5;
-}
-
-.trunk {
-  fill: none;
-  animation: trunk-hello 760ms 620ms ease-in-out 3;
-}
-
-.eye {
-  fill: #17181d;
-}
-
-.brow,
-.smile,
-.hair,
-.hello-lines path {
-  fill: none;
-  stroke: #2f3036;
-  stroke-width: 6;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-.smile {
-  stroke: var(--magenta);
-}
-
-.hello-lines path {
-  stroke: var(--magenta);
-  stroke-width: 5;
-  stroke-dasharray: 24;
-  stroke-dashoffset: 24;
-  animation: hello-lines 420ms 660ms ease-out forwards;
 }
 
 .jumbito-intro p {
@@ -254,16 +168,6 @@ body.drawer-open {
   }
 }
 
-@keyframes jumbito-wave {
-  0%,
-  100% {
-    transform: rotate(-8deg);
-  }
-  50% {
-    transform: rotate(16deg);
-  }
-}
-
 @keyframes mascot-polished-entry {
   0% {
     opacity: 0;
@@ -292,42 +196,6 @@ body.drawer-open {
   100% {
     opacity: 0;
     scale: 0.7 1;
-  }
-}
-
-@keyframes svg-wave {
-  0%,
-  100% {
-    transform: rotate(-7deg);
-  }
-  50% {
-    transform: rotate(16deg);
-  }
-}
-
-@keyframes trunk-hello {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-4px);
-  }
-}
-
-@keyframes ear-soft {
-  0%,
-  100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.04);
-  }
-}
-
-@keyframes hello-lines {
-  to {
-    stroke-dashoffset: 0;
   }
 }
 

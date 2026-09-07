@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="es-AR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Jumbo Prime Argentina</title>
+    <meta
+      name="description"
+      content="Landing rediseñada para Jumbo Prime Argentina, inspirada en el sistema visual regional de Prime."
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%23b20f85'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Arial' font-size='30' font-weight='900' fill='white'%3EP%3C/text%3E%3C/svg%3E"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="jumbito-intro" data-intro aria-hidden="true">
+      <div class="intro-brand">
+        <span class="brand-jumbo">Jumbo</span>
+        <span class="brand-prime">prime</span>
+      </div>
+      <div class="jumbito-scene">
+        <img
+          class="jumbito-character jumbito-character-3d"
+          src="assets/jumbito-prime-pro.png"
+          alt="Elefantito Jumbo saludando"
+        />
+        <span class="hello-spark spark-one" aria-hidden="true"></span>
+        <span class="hello-spark spark-two" aria-hidden="true"></span>
+        <span class="hello-spark spark-three" aria-hidden="true"></span>
+      </div>
+      <p>Bienvenido a Prime</p>
+    </div>
+
+    <header class="site-header">
+      <a class="brand" href="#" aria-label="Jumbo Prime Argentina">
+        <span class="brand-jumbo">Jumbo</span>
+        <span class="brand-prime">prime</span>
+      </a>
+      <nav class="header-actions" aria-label="Navegación principal">
+        <a class="subscribe-button" href="https://jumboprime.com.ar/ords/prime/r/register/start">Suscribite</a>
+        <a class="ghost-link" href="#faq">Preguntas frecuentes</a>
+        <a class="outline-button" href="https://jumboprime.com.ar/ords/prime/r/client/login"> Ingresar </a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-media" aria-label="Persona comprando con Jumbo Prime"></div>
+        <div class="hero-copy">
+          <p class="eyebrow">Jumbo Prime Argentina</p>
+          <h1 id="hero-title">Tu membresía para comprar más fácil y ahorrar en cada pedido</h1>
+          <p class="hero-text">
+            Envíos gratis, descuentos exclusivos y atención prioritaria durante todo el año. Probá hasta 15 días gratis
+            en tu primera suscripción.
+          </p>
+          <p class="price-line">Suscribite desde $5.500 al mes</p>
+          <a class="primary-button" href="https://jumboprime.com.ar/ords/prime/r/register/start">Quiero ser Jumbo Prime</a>
+        </div>
+      </section>
+
+      <section class="benefits-section" id="beneficios" aria-labelledby="benefits-title">
+        <div class="section-heading">
+          <h2 id="benefits-title">Beneficios Prime</h2>
+        </div>
+
+        <div class="benefits-grid">
+          <article class="benefit-card" data-benefit-card="envios">
+            <div class="benefit-media">
+              <img
+                src="assets/logo-envios.svg"
+                alt="Envíos gratis"
+                loading="eager"
+              />
+            </div>
+            <div class="benefit-copy">
+              <h3>Envíos gratis ilimitados</h3>
+              <p>En compras presenciales y virtuales superiores a $60.000.</p>
+              <button class="text-button" type="button" data-benefit-open="envios">Mostrar más</button>
+            </div>
+          </article>
+
+          <article class="benefit-card" data-benefit-card="descuentos">
+            <div class="benefit-media benefit-media-row">
+              <img
+                src="assets/logo-jumbo.png"
+                alt="Jumbo"
+                loading="eager"
+              />
+              <img
+                src="assets/logo-disco.png"
+                alt="Disco"
+                loading="eager"
+              />
+              <img
+                src="assets/logo-cencopay-credito.svg"
+                alt="Cencopay Crédito"
+                loading="eager"
+              />
+            </div>
+            <div class="benefit-copy">
+              <h3>Descuentos exclusivos</h3>
+              <p>Promos todas las semanas en Jumbo y Disco, con beneficios pagando con Cencopay.</p>
+              <button class="text-button" type="button" data-benefit-open="descuentos">Mostrar más</button>
+            </div>
+          </article>
+
+          <article class="benefit-card" data-benefit-card="jumbo-mas">
+            <div class="benefit-media">
+              <img
+                src="assets/logo-jumbo-mas.png"
+                alt="Jumbo Más"
+                loading="eager"
+              />
+            </div>
+            <div class="benefit-copy">
+              <h3>Doble acumulación Jumbo Más</h3>
+              <p>Sumá doble puntaje en compras online, exclusivo para miembros Prime.</p>
+              <button class="text-button" type="button" data-benefit-open="jumbo-mas">Mostrar más</button>
+            </div>
+          </article>
+
+          <article class="benefit-card" data-benefit-card="shell">
+            <div class="benefit-media">
+              <img
+                src="assets/logo-shell-box.png"
+                alt="Shell Box"
+                loading="eager"
+              />
+            </div>
+            <div class="benefit-copy">
+              <h3>Doble acumulación Shell Box</h3>
+              <p>Beneficio exclusivo los jueves en carga de combustible Shell V-Power.</p>
+              <button class="text-button" type="button" data-benefit-open="shell">Mostrar más</button>
+            </div>
+          </article>
+
+          <article class="benefit-card" data-benefit-card="smiles">
+            <div class="benefit-media">
+              <img
+                src="assets/logo-smiles.png"
+                alt="Millas Smiles"
+                loading="eager"
+              />
+            </div>
+            <div class="benefit-copy">
+              <h3>Millas bonus Smiles</h3>
+              <p>Canjeá tus puntos Jumbo Más por más millas durante semanas bonus comunicadas.</p>
+              <button class="text-button" type="button" data-benefit-open="smiles">Mostrar más</button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <div class="benefit-drawer" data-benefit-drawer aria-hidden="true">
+        <button class="drawer-backdrop" type="button" data-benefit-close aria-label="Cerrar detalle"></button>
+        <aside
+          class="drawer-panel"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="drawer-title"
+          aria-describedby="drawer-description"
+        >
+          <button class="drawer-close" type="button" data-benefit-close aria-label="Cerrar panel">×</button>
+          <div class="drawer-logo" data-drawer-logo aria-hidden="true"></div>
+          <p class="drawer-eyebrow" data-drawer-eyebrow>Beneficio Prime</p>
+          <h2 id="drawer-title" data-drawer-title>Beneficio Prime</h2>
+          <p id="drawer-description" data-drawer-description></p>
+          <ul class="drawer-list" data-drawer-list></ul>
+          <a class="drawer-cta" href="https://jumboprime.com.ar/ords/prime/r/register/start">Quiero ser Jumbo Prime</a>
+        </aside>
+      </div>
+
+      <section class="offers-section prime-carousel-section" aria-labelledby="offers-title">
+        <div class="section-heading dark-heading">
+          <h2 id="offers-title">Ofertas exclusivas</h2>
+          <p>Beneficios destacados para ahorrar más en tus compras Prime.</p>
+        </div>
+
+        <div class="prime-carousel" data-carousel>
+          <button class="carousel-arrow carousel-prev" type="button" aria-label="Oferta anterior">
+            <span aria-hidden="true">‹</span>
+          </button>
+
+          <div class="carousel-stage" aria-live="polite">
+            <article class="offer-card" data-slide>
+              <div class="offer-visual offer-visual-promo">
+                <img src="assets/promo-despensa-prime.png" alt="Hasta 35% de descuento en despensa Prime" />
+              </div>
+              <div class="offer-content">
+                <span>Despensa Prime</span>
+                <h3>Hasta 35% de descuento</h3>
+                <p>En arroz, aceites, pastas, salsas y básicos para llenar la alacena.</p>
+                <a href="#comprar">Ver oferta</a>
+              </div>
+            </article>
+
+            <article class="offer-card" data-slide>
+              <div class="offer-visual offer-visual-promo">
+                <img src="assets/promo-belleza-prime.png" alt="10% de descuento adicional en marcas seleccionadas" />
+              </div>
+              <div class="offer-content">
+                <span>Marcas seleccionadas</span>
+                <h3>10% adicional</h3>
+                <p>En productos de cuidado, bienestar y marcas destacadas para socios Prime.</p>
+                <a href="#comprar">Ver promo</a>
+              </div>
+            </article>
+
+            <article class="offer-card" data-slide>
+              <div class="offer-visual offer-visual-promo">
+                <img src="assets/promo-mascotas-prime.png" alt="10% de descuento adicional en productos para mascotas" />
+              </div>
+              <div class="offer-content">
+                <span>Mascotas</span>
+                <h3>10% adicional</h3>
+                <p>En alimento, snacks y productos seleccionados para tu mascota.</p>
+                <a href="#comprar">Ver promo</a>
+              </div>
+            </article>
+
+            <article class="offer-card" data-slide>
+              <div class="offer-visual offer-visual-rose">
+                <span class="status-dot"></span>
+                <span class="offer-status">Cencopay</span>
+                <strong>50%</strong>
+                <small>en suscripción</small>
+              </div>
+              <div class="offer-content">
+                <span>Pago recomendado</span>
+                <h3>Pagá menos con Cencopay</h3>
+                <p>Beneficio especial para la suscripción durante los primeros meses.</p>
+                <a href="#comprar">Activar</a>
+              </div>
+            </article>
+          </div>
+
+          <button class="carousel-arrow carousel-next" type="button" aria-label="Oferta siguiente">
+            <span aria-hidden="true">›</span>
+          </button>
+
+          <div class="carousel-dots" aria-label="Seleccionar oferta">
+            <button class="dot is-active" type="button" aria-label="Ir a oferta 1"></button>
+            <button class="dot" type="button" aria-label="Ir a oferta 2"></button>
+            <button class="dot" type="button" aria-label="Ir a oferta 3"></button>
+            <button class="dot" type="button" aria-label="Ir a oferta 4"></button>
+          </div>
+        </div>
+      </section>
+
+      <section class="faq-section" id="faq" aria-labelledby="faq-title">
+        <div class="faq-inner">
+          <h2 id="faq-title">Preguntas Frecuentes</h2>
+
+          <div class="faq-list">
+            <button class="faq-item" type="button" aria-expanded="false">
+              <span>¿Qué es Jumbo Prime?</span>
+              <span aria-hidden="true">+</span>
+            </button>
+            <div class="faq-panel">
+              Jumbo Prime es una membresía con beneficios para comprar en Jumbo, Disco y canales asociados, según las
+              condiciones vigentes de cada promoción.
+            </div>
+
+            <button class="faq-item" type="button" aria-expanded="false">
+              <span>¿Cuáles son los beneficios ofrecidos?</span>
+              <span aria-hidden="true">+</span>
+            </button>
+            <div class="faq-panel">
+              Envíos bonificados, descuentos exclusivos, acumulación de puntos y atención preferencial para miembros
+              activos.
+            </div>
+
+            <button class="faq-item" type="button" aria-expanded="false">
+              <span>¿Valor y duración de la membresía?</span>
+              <span aria-hidden="true">+</span>
+            </button>
+            <div class="faq-panel">
+              El valor mensual se informa al momento de la suscripción. El período de prueba puede alcanzar hasta 15
+              días para nuevas altas.
+            </div>
+
+            <button class="faq-item" type="button" aria-expanded="false">
+              <span>¿Qué canales de atención tengo?</span>
+              <span aria-hidden="true">+</span>
+            </button>
+            <div class="faq-panel">
+              Podés contactar al centro de atención al cliente de Cencosud o consultar desde tu cuenta Prime.
+            </div>
+          </div>
+
+          <div class="closing-cta" id="suscribite-final">
+            <p>
+              <span>Todo esto desde</span>
+              <strong>$5.500</strong>
+              <small>al mes</small>
+            </p>
+            <a class="primary-button" href="https://jumboprime.com.ar/ords/prime/r/register/start">Quiero ser Jumbo Prime</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <h2>Contacto</h2>
+        <a href="#contacto">Formulario de contacto</a>
+        <a href="mailto:consultasjumboprime@cencosud.com.ar">consultasjumboprime@cencosud.com.ar</a>
+      </div>
+      <div>
+        <h2>Enlaces útiles</h2>
+        <a href="#terminos">Términos y condiciones</a>
+        <a href="#privacidad">Políticas de privacidad</a>
+      </div>
+      <a class="footer-brand" href="#" aria-label="Jumbo Prime">prime</a>
+      <p class="copyright">© 2026 Prime Regional. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

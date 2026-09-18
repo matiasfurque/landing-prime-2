@@ -47,16 +47,32 @@
 
     <main>
       <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-media" aria-label="Persona comprando con Jumbo Prime"></div>
-        <div class="hero-copy">
-          <p class="eyebrow">Jumbo Prime Argentina</p>
-          <h1 id="hero-title">VIVÍ MOMENTOS JUMBO PRIME</h1>
-          <p class="hero-text">
-            Envíos gratis, descuentos exclusivos y atención prioritaria durante todo el año. Probá hasta 15 días gratis
-            en tu primera suscripción.
-          </p>
-          <p class="price-line">Suscribite desde $5.500 al mes</p>
-          <a class="primary-button" href="https://jumboprime.com.ar/ords/prime/r/register/start">Quiero ser Jumbo Prime</a>
+        <div class="hero-background" aria-hidden="true"></div>
+        <div class="hero-content">
+          <div class="hero-copy">
+            <h1 id="hero-title">Ser prime<br />siempre <span>suma</span></h1>
+            <p class="hero-text">Todos tus beneficios, en un solo lugar.</p>
+            <a class="hero-cta" href="https://jumboprime.com.ar/ords/prime/r/register/start">
+              Probá gratis 15 días <span aria-hidden="true">→</span>
+            </a>
+            <p class="hero-note">Cancelá cuando quieras.</p>
+          </div>
+
+          <aside class="prime-access-card" aria-labelledby="access-card-title">
+            <div class="access-card-brand" aria-label="Jumbo Prime">
+              <span class="brand-jumbo">Jumbo</span>
+              <span class="brand-prime">prime</span>
+            </div>
+            <h2 id="access-card-title">¿Ya sos Prime?</h2>
+            <p>Ingresá a tu cuenta y encontrá todos tus beneficios en un solo lugar.</p>
+            <a class="access-button" href="https://jumboprime.com.ar/ords/prime/r/client/login">
+              Ingresar a mi cuenta <span aria-hidden="true">→</span>
+            </a>
+            <p class="access-card-footer">
+              ¿Todavía no sos Prime?
+              <a href="https://jumboprime.com.ar/ords/prime/r/register/start">Sumate ahora</a>
+            </p>
+          </aside>
         </div>
       </section>
 
@@ -65,91 +81,114 @@
           <h2 id="benefits-title">Beneficios Prime</h2>
         </div>
 
-        <div class="benefits-grid">
-          <article class="benefit-card" data-benefit-card="envios">
-            <div class="benefit-media">
-              <img
-                src="assets/logo-envios.svg"
-                alt="Envíos gratis"
-                loading="eager"
-              />
+        <div
+          class="prime-benefit-carousel"
+          data-prime-benefits
+          aria-roledescription="carrusel"
+          aria-label="Beneficios Prime"
+        >
+          <article class="prime-benefit-slide is-active" data-prime-benefit-slide aria-hidden="false">
+            <div class="prime-benefit-visual prime-benefit-visual--shipping">
+              <img src="assets/logo-envios.svg" alt="Envíos gratis" />
+              <p>Comprá más fácil,<br />recibí sin costo.</p>
+              <strong>Envíos<br />ilimitados</strong>
             </div>
-            <div class="benefit-copy">
+            <div class="prime-benefit-detail">
+              <p class="prime-benefit-eyebrow">Envíos Prime</p>
               <h3>Envíos gratis ilimitados</h3>
-              <p>En compras presenciales y virtuales superiores a $60.000.</p>
-              <button class="text-button" type="button" data-benefit-open="envios">Mostrar más</button>
+              <p>Hacé tus compras presenciales y virtuales con envíos bonificados en pedidos que superen el mínimo vigente.</p>
+              <ul>
+                <li>Disponible para compras superiores a $60.000.</li>
+                <li>Válido en canales participantes.</li>
+                <li>Para disfrutar cada compra un poco más.</li>
+              </ul>
             </div>
           </article>
 
-          <article class="benefit-card" data-benefit-card="descuentos">
-            <div class="benefit-media benefit-media-row">
-              <img
-                src="assets/logo-jumbo.png"
-                alt="Jumbo"
-                loading="eager"
-              />
-              <img
-                src="assets/logo-disco.png"
-                alt="Disco"
-                loading="eager"
-              />
-              <img
-                src="assets/logo-cencopay-credito.svg"
-                alt="Cencopay Crédito"
-                loading="eager"
-              />
+          <article class="prime-benefit-slide" data-prime-benefit-slide aria-hidden="true">
+            <div class="prime-benefit-visual prime-benefit-visual--discounts">
+              <div class="prime-benefit-logo-row" aria-label="Jumbo, Disco y Cencopay Crédito">
+                <img src="assets/logo-jumbo.png" alt="Jumbo" />
+                <img src="assets/logo-disco.png" alt="Disco" />
+                <img src="assets/logo-cencopay-credito.svg" alt="Cencopay Crédito" />
+              </div>
+              <p>Más beneficios<br />en cada compra.</p>
+              <strong>Promos<br />exclusivas</strong>
             </div>
-            <div class="benefit-copy">
+            <div class="prime-benefit-detail">
+              <p class="prime-benefit-eyebrow">Ahorro semanal</p>
               <h3>Descuentos exclusivos</h3>
-              <p>Promos todas las semanas en Jumbo y Disco, con beneficios pagando con Cencopay.</p>
-              <button class="text-button" type="button" data-benefit-open="descuentos">Mostrar más</button>
+              <p>Accedé a promociones seleccionadas todas las semanas en Jumbo y Disco, con beneficios especiales pagando con Cencopay.</p>
+              <ul>
+                <li>Promociones semanales para miembros Prime.</li>
+                <li>Beneficios en categorías seleccionadas.</li>
+                <li>Más ahorro usando medios de pago aliados.</li>
+              </ul>
             </div>
           </article>
 
-          <article class="benefit-card" data-benefit-card="jumbo-mas">
-            <div class="benefit-media">
-              <img
-                src="assets/logo-jumbo-mas.png"
-                alt="Jumbo Más"
-                loading="eager"
-              />
-            </div>
-            <div class="benefit-copy">
-              <h3>Doble acumulación Jumbo Más</h3>
-              <p>Sumá doble puntaje en compras online, exclusivo para miembros Prime.</p>
-              <button class="text-button" type="button" data-benefit-open="jumbo-mas">Mostrar más</button>
-            </div>
-          </article>
+          <div class="prime-benefit-progress" aria-hidden="true">
+            <span data-prime-benefit-progress></span>
+          </div>
+        </div>
+      </section>
 
-          <article class="benefit-card" data-benefit-card="shell">
-            <div class="benefit-media">
-              <img
-                src="assets/logo-shell-box.png"
-                alt="Shell Box"
-                loading="eager"
-              />
-            </div>
-            <div class="benefit-copy">
-              <h3>Doble acumulación Shell Box</h3>
-              <p>Beneficio exclusivo los jueves en carga de combustible Shell V-Power.</p>
-              <button class="text-button" type="button" data-benefit-open="shell">Mostrar más</button>
-            </div>
-          </article>
+      <section class="alliances-section" id="alianzas" aria-labelledby="alliances-title">
+        <div class="alliances-inner">
+          <header class="alliances-heading">
+            <h2 id="alliances-title">Alianzas que te dan más</h2>
+            <p>Más beneficios, más experiencias, más para vos.</p>
+          </header>
 
-          <article class="benefit-card" data-benefit-card="smiles">
-            <div class="benefit-media">
-              <img
-                src="assets/logo-smiles.png"
-                alt="Millas Smiles"
-                loading="eager"
-              />
-            </div>
-            <div class="benefit-copy">
-              <h3>Millas bonus Smiles</h3>
-              <p>Canjeá tus puntos Jumbo Más por más millas durante semanas bonus comunicadas.</p>
-              <button class="text-button" type="button" data-benefit-open="smiles">Mostrar más</button>
-            </div>
-          </article>
+          <div class="alliances-grid">
+            <button class="alliance-card alliance-card--smiles" type="button" data-benefit-open="smiles">
+              <span class="alliance-content">
+                <span class="alliance-brand alliance-brand--smiles">
+                  <img src="assets/logo-smiles.png" alt="Smiles" loading="lazy" />
+                </span>
+                <span class="alliance-copy"><strong>Millas bonus</strong> en todos tus viajes</span>
+              </span>
+            </button>
+
+            <button class="alliance-card alliance-card--shell" type="button" data-benefit-open="shell">
+              <span class="alliance-content">
+                <span class="alliance-brand alliance-brand--shell">
+                  <img src="assets/logo-shell-box.png" alt="Shell Box" loading="lazy" />
+                </span>
+                <span class="alliance-copy"><strong>Beneficios exclusivos</strong> en tus cargas</span>
+              </span>
+            </button>
+
+            <button class="alliance-card alliance-card--365" type="button" data-benefit-open="365">
+              <span class="alliance-content">
+                <span class="alliance-brand alliance-brand--365">365</span>
+                <span class="alliance-copy"><strong>Beneficios exclusivos</strong> en tus experiencias</span>
+              </span>
+            </button>
+
+            <button class="alliance-card alliance-card--jumbo-mas" type="button" data-benefit-open="jumbo-mas">
+              <span class="alliance-content">
+                <span class="alliance-brand alliance-brand--jumbo-mas">
+                  <img src="assets/logo-jumbo-mas.png" alt="Jumbo Más" loading="lazy" />
+                </span>
+                <span class="alliance-copy"><strong>Doble acumulación</strong> de puntos J+ en compras virtuales</span>
+              </span>
+            </button>
+
+            <button class="alliance-card alliance-card--support" type="button" data-benefit-open="atencion">
+              <span class="alliance-content">
+                <span class="alliance-brand alliance-brand--support">Prime</span>
+                <span class="alliance-copy"><strong>Canal exclusivo</strong> de atención</span>
+              </span>
+            </button>
+
+            <button class="alliance-card alliance-card--cabify" type="button" data-benefit-open="cabify">
+              <span class="alliance-content">
+                <span class="alliance-brand alliance-brand--cabify">cabify</span>
+                <span class="alliance-copy"><strong>25% dcto.</strong> en tus próximos viajes</span>
+              </span>
+            </button>
+          </div>
         </div>
       </section>
 
@@ -317,6 +356,6 @@
       <p class="copyright">© 2026 Prime Regional. Todos los derechos reservados.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=benefits-rotation"></script>
   </body>
 </html>

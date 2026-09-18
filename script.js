@@ -3,26 +3,6 @@ const intro = document.querySelector("[data-intro]");
 const benefitDrawer = document.querySelector("[data-benefit-drawer]");
 
 const benefitDetails = {
-  envios: {
-    eyebrow: "Envíos Prime",
-    title: "Envíos gratis ilimitados",
-    description:
-      "Comprá online o en tiendas participantes y aprovechá envíos bonificados en pedidos que superen el mínimo vigente.",
-    logos: [{ src: "assets/logo-envios.svg", alt: "Envíos gratis" }],
-    items: ["Disponible para compras superiores a $60.000.", "Aplica en canales participantes.", "Ideal para compras grandes o recurrentes."],
-  },
-  descuentos: {
-    eyebrow: "Ahorro semanal",
-    title: "Descuentos exclusivos",
-    description:
-      "Accedé a promociones seleccionadas todas las semanas en Jumbo y Disco, con beneficios especiales al pagar con Cencopay.",
-    logos: [
-      { src: "assets/logo-jumbo.png", alt: "Jumbo" },
-      { src: "assets/logo-disco.png", alt: "Disco" },
-      { src: "assets/logo-cencopay-credito.svg", alt: "Cencopay Crédito" },
-    ],
-    items: ["Promos semanales para miembros Prime.", "Beneficios en categorías seleccionadas.", "Más ahorro usando medios de pago aliados."],
-  },
   "jumbo-mas": {
     eyebrow: "Puntos",
     title: "Doble acumulación Jumbo Más",
@@ -46,6 +26,30 @@ const benefitDetails = {
       "Canjeá tus puntos Jumbo Más por más millas durante semanas bonus y promociones especiales comunicadas.",
     logos: [{ src: "assets/logo-smiles.png", alt: "Smiles" }],
     items: ["Semanas bonus comunicadas previamente.", "Canje desde Jumbo Más.", "Beneficio ideal para sumar millas más rápido."],
+  },
+  atencion: {
+    eyebrow: "Atención Prime",
+    title: "Canal exclusivo de atención",
+    description:
+      "Contá con un canal de atención pensado para acompañarte cuando necesitás resolver una consulta sobre tu membresía.",
+    logos: [{ text: "Prime", className: "drawer-wordmark--prime" }],
+    items: ["Atención para consultas sobre tu membresía.", "Información sobre beneficios vigentes.", "Canales disponibles según las condiciones comunicadas."],
+  },
+  cabify: {
+    eyebrow: "Movilidad",
+    title: "Beneficios Cabify",
+    description:
+      "Accedé a beneficios especiales en viajes seleccionados, según las condiciones vigentes de la alianza.",
+    logos: [{ text: "cabify", className: "drawer-wordmark--cabify" }],
+    items: ["Descuentos sujetos a campañas vigentes.", "Aplicable en viajes y zonas participantes.", "Consultá las condiciones de cada beneficio."],
+  },
+  365: {
+    eyebrow: "Experiencias",
+    title: "Beneficios 365",
+    description:
+      "Disfrutá beneficios exclusivos en experiencias seleccionadas, de acuerdo con las condiciones de la alianza.",
+    logos: [{ text: "365", className: "drawer-wordmark--365" }],
+    items: ["Experiencias y propuestas seleccionadas.", "Beneficios sujetos a vigencia.", "Consultá las condiciones antes de usarlo."],
   },
 };
 
@@ -86,6 +90,13 @@ if (benefitDrawer) {
     drawerLogo.classList.toggle("is-row", detail.logos.length > 1);
     drawerLogo.replaceChildren(
       ...detail.logos.map((logo) => {
+        if (logo.text) {
+          const wordmark = document.createElement("span");
+          wordmark.className = `drawer-wordmark ${logo.className ?? ""}`.trim();
+          wordmark.textContent = logo.text;
+          return wordmark;
+        }
+
         const image = document.createElement("img");
         image.src = logo.src;
         image.alt = logo.alt;
@@ -110,13 +121,6 @@ if (benefitDrawer) {
     button.addEventListener("click", () => openBenefitDrawer(button.dataset.benefitOpen));
   });
 
-  document.querySelectorAll("[data-benefit-card]").forEach((card) => {
-    card.addEventListener("click", (event) => {
-      if (event.target.closest("button")) return;
-      openBenefitDrawer(card.dataset.benefitCard);
-    });
-  });
-
   closeButtons.forEach((button) => {
     button.addEventListener("click", closeBenefitDrawer);
   });
@@ -126,6 +130,39 @@ if (benefitDrawer) {
       closeBenefitDrawer();
     }
   });
+}
+
+const primeBenefits = document.querySelector("[data-prime-benefits]");
+
+if (primeBenefits) {
+  const slides = Array.from(primeBenefits.querySelectorAll("[data-prime-benefit-slide]"));
+  const progress = primeBenefits.querySelector("[data-prime-benefit-progress]");
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const rotationDuration = 5000;
+  let activeIndex = 0;
+
+  const renderPrimeBenefit = () => {
+    slides.forEach((slide, index) => {
+      const isActive = index === activeIndex;
+      slide.classList.toggle("is-active", isActive);
+      slide.setAttribute("aria-hidden", String(!isActive));
+    });
+
+    if (progress && !prefersReducedMotion) {
+      progress.classList.remove("is-running");
+      void progress.offsetWidth;
+      progress.classList.add("is-running");
+    }
+  };
+
+  renderPrimeBenefit();
+
+  if (!prefersReducedMotion && slides.length > 1) {
+    window.setInterval(() => {
+      activeIndex = (activeIndex + 1) % slides.length;
+      renderPrimeBenefit();
+    }, rotationDuration);
+  }
 }
 
 faqItems.forEach((item) => {

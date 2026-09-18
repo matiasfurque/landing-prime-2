@@ -2181,17 +2181,17 @@ a {
   }
 
   .prime-benefit-control {
-    top: 109px;
+    top: 50%;
     width: 44px;
     height: 44px;
   }
 
   .prime-benefit-control[data-prime-benefit-previous] {
-    left: 12px;
+    left: 8px;
   }
 
   .prime-benefit-control[data-prime-benefit-next] {
-    right: 12px;
+    right: 8px;
   }
 
   .alliances-grid {

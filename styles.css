@@ -691,7 +691,7 @@ a {
 .prime-benefit-carousel {
   position: relative;
   max-width: 1120px;
-  min-height: 358px;
+  height: 410px;
   margin: 0 auto;
 }
 
@@ -712,8 +712,9 @@ a {
 }
 
 .prime-benefit-slide.is-active {
-  position: relative;
+  position: absolute;
   z-index: 1;
+  height: 100%;
   opacity: 1;
   pointer-events: auto;
   transform: translateX(0);
@@ -758,6 +759,178 @@ a {
 
 .prime-benefit-visual--discounts {
   --prime-benefit-overlay: linear-gradient(135deg, rgba(21, 117, 74, 0.96), rgba(76, 160, 76, 0.84));
+}
+
+.prime-benefit-visual--points,
+.prime-benefit-visual--experiences,
+.prime-benefit-visual--catalog-discounts,
+.prime-benefit-visual--home,
+.prime-benefit-visual--membership {
+  color: var(--ink);
+}
+
+.prime-benefit-visual--points::before,
+.prime-benefit-visual--experiences::before,
+.prime-benefit-visual--catalog-discounts::before,
+.prime-benefit-visual--home::before,
+.prime-benefit-visual--membership::before {
+  background: none;
+  opacity: 1;
+}
+
+.prime-benefit-visual--points::after,
+.prime-benefit-visual--experiences::after,
+.prime-benefit-visual--catalog-discounts::after,
+.prime-benefit-visual--home::after,
+.prime-benefit-visual--membership::after {
+  background: none;
+}
+
+.prime-benefit-visual--points {
+  background: #e8f7ef;
+}
+
+.prime-benefit-visual--experiences {
+  background: #fff0f8;
+}
+
+.prime-benefit-visual--catalog-discounts {
+  background: #fff7d9;
+}
+
+.prime-benefit-visual--home {
+  background: #eaf3ff;
+}
+
+.prime-benefit-visual--membership {
+  color: white;
+  background: var(--magenta);
+}
+
+.prime-benefit-feature {
+  position: relative;
+  z-index: 1;
+}
+
+.prime-benefit-feature--points {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: min(100%, 230px);
+  min-height: 88px;
+  padding: 16px 18px;
+  background: white;
+  border: 1px solid rgba(0, 118, 74, 0.14);
+  border-radius: 8px;
+  box-shadow: 0 14px 28px rgba(0, 86, 55, 0.12);
+}
+
+.prime-benefit-feature--points img {
+  width: 108px;
+  max-height: 42px;
+  object-fit: contain;
+}
+
+.prime-benefit-feature--points span {
+  color: var(--green);
+  font-family: var(--font-black);
+  font-size: 30px;
+}
+
+.prime-benefit-feature--experiences {
+  display: grid;
+  grid-template-columns: repeat(2, max-content);
+  gap: 8px;
+}
+
+.prime-benefit-feature--experiences span {
+  padding: 10px 12px;
+  color: var(--magenta);
+  background: white;
+  border: 1px solid rgba(178, 15, 133, 0.16);
+  border-radius: 999px;
+  font-family: var(--font-extrabold);
+  font-size: 13px;
+  line-height: 1;
+}
+
+.prime-benefit-feature--experiences span:last-child {
+  grid-column: 1 / -1;
+  justify-self: center;
+}
+
+.prime-benefit-feature--discounts {
+  display: grid;
+  grid-template-columns: max-content 40px;
+  gap: 7px 10px;
+  align-items: center;
+  width: min(100%, 220px);
+  padding: 16px 18px;
+  color: var(--ink);
+  background: white;
+  border: 1px solid rgba(34, 34, 34, 0.08);
+  border-radius: 8px;
+  box-shadow: 0 14px 28px rgba(75, 61, 13, 0.12);
+  font-family: var(--font-extrabold);
+  font-size: 14px;
+  line-height: 1.05;
+}
+
+.prime-benefit-feature--discounts strong {
+  grid-row: 1 / span 2;
+  grid-column: 2;
+  color: var(--magenta);
+  font-family: var(--font-black);
+  font-size: 44px;
+  line-height: 0.8;
+}
+
+.prime-benefit-feature--home {
+  display: inline-flex;
+  overflow: hidden;
+  border: 1px solid rgba(0, 89, 166, 0.16);
+  border-radius: 8px;
+  box-shadow: 0 14px 28px rgba(21, 84, 138, 0.12);
+}
+
+.prime-benefit-feature--home span {
+  display: grid;
+  min-width: 112px;
+  min-height: 66px;
+  place-items: center;
+  color: white;
+  background: #1877c9;
+  font-family: var(--font-black);
+  font-size: 22px;
+}
+
+.prime-benefit-feature--home span + span {
+  color: var(--ink);
+  background: white;
+}
+
+.prime-benefit-feature--membership {
+  display: grid;
+  gap: 2px;
+  width: min(100%, 240px);
+  padding: 16px 18px;
+  color: var(--magenta);
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 14px 28px rgba(103, 3, 73, 0.2);
+}
+
+.prime-benefit-feature--membership span {
+  font-family: var(--font-extrabold);
+  font-size: 14px;
+  line-height: 1;
+}
+
+.prime-benefit-feature--membership strong {
+  color: var(--magenta);
+  font-family: var(--font-black);
+  font-size: 42px;
+  line-height: 0.9;
 }
 
 .prime-benefit-visual > img {
@@ -883,6 +1056,56 @@ a {
 
 .prime-benefit-progress span.is-running {
   animation: prime-benefit-progress 5s linear forwards;
+}
+
+.prime-benefit-progress span.is-paused {
+  animation-play-state: paused;
+}
+
+.prime-benefit-controls {
+  display: contents;
+}
+
+.prime-benefit-control {
+  position: absolute;
+  top: 50%;
+  z-index: 3;
+  display: grid;
+  width: 52px;
+  height: 52px;
+  padding: 0;
+  place-items: center;
+  color: var(--magenta-dark);
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(122, 7, 92, 0.18);
+  border-radius: 50%;
+  box-shadow: 0 12px 34px rgba(44, 32, 48, 0.14);
+  cursor: pointer;
+  transform: translateY(-50%);
+  transition: color 180ms ease, background-color 180ms ease, border-color 180ms ease;
+}
+
+.prime-benefit-control span {
+  font-family: var(--font-extrabold);
+  font-size: 34px;
+  line-height: 1;
+  transform: translateY(-2px);
+}
+
+.prime-benefit-control:hover,
+.prime-benefit-control:focus-visible {
+  color: white;
+  background: var(--magenta);
+  border-color: var(--magenta);
+  outline: none;
+}
+
+.prime-benefit-control[data-prime-benefit-previous] {
+  left: -26px;
+}
+
+.prime-benefit-control[data-prime-benefit-next] {
+  right: -26px;
 }
 
 @keyframes prime-benefit-progress {
@@ -1877,7 +2100,7 @@ a {
   }
 
   .prime-benefit-carousel {
-    min-height: 650px;
+    height: 660px;
   }
 
   .prime-benefit-slide {
@@ -1899,6 +2122,39 @@ a {
     font-size: 38px;
   }
 
+  .prime-benefit-feature--points {
+    min-height: 72px;
+    padding: 12px 14px;
+  }
+
+  .prime-benefit-feature--points img {
+    width: 92px;
+  }
+
+  .prime-benefit-feature--experiences span {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+
+  .prime-benefit-feature--discounts {
+    width: 196px;
+    padding: 12px 14px;
+  }
+
+  .prime-benefit-feature--home span {
+    min-width: 92px;
+    min-height: 54px;
+    font-size: 18px;
+  }
+
+  .prime-benefit-feature--membership {
+    padding: 12px 14px;
+  }
+
+  .prime-benefit-feature--membership strong {
+    font-size: 35px;
+  }
+
   .prime-benefit-detail {
     justify-content: flex-start;
     padding: 30px 24px 46px;
@@ -1917,6 +2173,25 @@ a {
   .prime-benefit-progress {
     right: 24px;
     bottom: 20px;
+    width: 96px;
+  }
+
+  .prime-benefit-controls {
+    display: contents;
+  }
+
+  .prime-benefit-control {
+    top: 109px;
+    width: 44px;
+    height: 44px;
+  }
+
+  .prime-benefit-control[data-prime-benefit-previous] {
+    left: 12px;
+  }
+
+  .prime-benefit-control[data-prime-benefit-next] {
+    right: 12px;
   }
 
   .alliances-grid {

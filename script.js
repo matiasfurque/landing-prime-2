@@ -137,9 +137,13 @@ const primeBenefits = document.querySelector("[data-prime-benefits]");
 if (primeBenefits) {
   const slides = Array.from(primeBenefits.querySelectorAll("[data-prime-benefit-slide]"));
   const progress = primeBenefits.querySelector("[data-prime-benefit-progress]");
+  const previous = primeBenefits.querySelector("[data-prime-benefit-previous]");
+  const next = primeBenefits.querySelector("[data-prime-benefit-next]");
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const rotationDuration = 5000;
   let activeIndex = 0;
+  let rotationTimer;
+  let isPrimeBenefitPaused = false;
 
   const renderPrimeBenefit = () => {
     slides.forEach((slide, index) => {
@@ -155,13 +159,51 @@ if (primeBenefits) {
     }
   };
 
-  renderPrimeBenefit();
+  const scheduleRotation = () => {
+    if (prefersReducedMotion || slides.length < 2) return;
 
-  if (!prefersReducedMotion && slides.length > 1) {
-    window.setInterval(() => {
+    window.clearTimeout(rotationTimer);
+    rotationTimer = window.setTimeout(() => {
       activeIndex = (activeIndex + 1) % slides.length;
       renderPrimeBenefit();
+      scheduleRotation();
     }, rotationDuration);
+  };
+
+  const goToPrimeBenefit = (nextIndex) => {
+    activeIndex = (nextIndex + slides.length) % slides.length;
+    renderPrimeBenefit();
+    if (!isPrimeBenefitPaused) scheduleRotation();
+  };
+
+  const pausePrimeBenefits = () => {
+    isPrimeBenefitPaused = true;
+    window.clearTimeout(rotationTimer);
+    progress?.classList.add("is-paused");
+  };
+
+  const resumePrimeBenefits = () => {
+    if (prefersReducedMotion) return;
+
+    isPrimeBenefitPaused = false;
+    progress?.classList.remove("is-paused");
+    renderPrimeBenefit();
+    scheduleRotation();
+  };
+
+  renderPrimeBenefit();
+
+  previous?.addEventListener("click", () => goToPrimeBenefit(activeIndex - 1));
+  next?.addEventListener("click", () => goToPrimeBenefit(activeIndex + 1));
+
+  if (!prefersReducedMotion && slides.length > 1) {
+    scheduleRotation();
+    primeBenefits.addEventListener("mouseenter", pausePrimeBenefits);
+    primeBenefits.addEventListener("mouseleave", resumePrimeBenefits);
+    primeBenefits.addEventListener("focusin", pausePrimeBenefits);
+    primeBenefits.addEventListener("focusout", (event) => {
+      if (!primeBenefits.contains(event.relatedTarget)) resumePrimeBenefits();
+    });
   }
 }
 

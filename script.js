@@ -207,6 +207,51 @@ if (primeBenefits) {
   }
 }
 
+const scrollRevealGroups = [
+  ".benefits-section .section-heading, .prime-benefit-carousel",
+  ".offers-section .section-heading, .prime-carousel",
+  ".monthly-heading, .monthly-card",
+  ".alliances-heading, .alliance-card",
+  ".faq-inner",
+  ".site-footer",
+];
+
+scrollRevealGroups.forEach((selector) => {
+  document.querySelectorAll(selector).forEach((item, index) => {
+    item.setAttribute("data-scroll-reveal", "");
+
+    if (!item.dataset.revealDelay && index > 0) {
+      item.dataset.revealDelay = String(Math.min(index, 3));
+    }
+  });
+});
+
+const scrollRevealItems = document.querySelectorAll("[data-scroll-reveal]");
+
+if (scrollRevealItems.length) {
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (!prefersReducedMotion && "IntersectionObserver" in window) {
+    document.documentElement.classList.add("reveal-ready");
+
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+
+          entry.target.classList.add("is-revealed");
+          revealObserver.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.14, rootMargin: "0px 0px -8%" }
+    );
+
+    scrollRevealItems.forEach((item) => revealObserver.observe(item));
+  } else {
+    scrollRevealItems.forEach((item) => item.classList.add("is-revealed"));
+  }
+}
+
 faqItems.forEach((item) => {
   item.addEventListener("click", () => {
     const isOpen = item.getAttribute("aria-expanded") === "true";

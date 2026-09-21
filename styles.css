@@ -164,6 +164,7 @@ html {
 
 body {
   margin: 0;
+  overflow-x: hidden;
   color: var(--ink);
   background: var(--page);
   font-family: var(--font-regular);
@@ -693,6 +694,7 @@ a {
   max-width: 1120px;
   height: 410px;
   margin: 0 auto;
+  overflow: hidden;
 }
 
 .prime-benefit-slide {
@@ -1160,83 +1162,37 @@ a {
 
 .monthly-card {
   position: relative;
-  isolation: isolate;
-  min-height: 238px;
+  aspect-ratio: 2.2;
   overflow: hidden;
-  color: white;
   border: 1px solid rgba(178, 15, 133, 0.12);
   border-radius: 8px;
   box-shadow: 0 14px 28px rgba(44, 32, 48, 0.1);
 }
 
-.monthly-card::after {
-  position: absolute;
-  z-index: -1;
-  inset: 0;
-  content: "";
-  background: var(--monthly-overlay);
-}
-
-.monthly-card-media {
-  position: absolute;
-  z-index: -2;
-  inset: 0;
-  background: var(--monthly-image) center / cover;
+.monthly-card-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-image: url("assets/monthly-prime-placeholder.png");
+  background-repeat: no-repeat;
+  background-size: auto 300%;
   transition: transform 500ms ease;
 }
 
-.monthly-card:hover .monthly-card-media {
-  transform: scale(1.045);
+.monthly-card:hover .monthly-card-image {
+  transform: scale(1.035);
 }
 
-.monthly-card--wine {
-  --monthly-image: url("assets/hero-prime-market-temporary.png");
-  --monthly-overlay: rgba(81, 23, 44, 0.58);
+.monthly-card--wine .monthly-card-image {
+  background-position: center top;
 }
 
-.monthly-card--beer {
-  --monthly-image: url("assets/promo-despensa-prime.png");
-  --monthly-overlay: rgba(0, 102, 156, 0.48);
+.monthly-card--beer .monthly-card-image {
+  background-position: center;
 }
 
-.monthly-card--cheese {
-  --monthly-image: url("assets/promo-belleza-prime.png");
-  --monthly-overlay: rgba(93, 55, 17, 0.48);
-}
-
-.monthly-card-content {
-  display: flex;
-  position: relative;
-  z-index: 1;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 238px;
-  padding: 22px;
-}
-
-.monthly-card-month {
-  margin: 0;
-  font-family: var(--font-extrabold);
-  font-size: 12px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-.monthly-card h3 {
-  margin: 0;
-  font-family: var(--font-black);
-  font-size: clamp(25px, 2.1vw, 31px);
-  line-height: 0.98;
-  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.28);
-}
-
-.monthly-card h3 + p {
-  max-width: 260px;
-  margin: 8px 0 0;
-  font-family: var(--font-medium);
-  font-size: 15px;
-  line-height: 1.3;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.28);
+.monthly-card--cheese .monthly-card-image {
+  background-position: center bottom;
 }
 
 html.reveal-ready [data-scroll-reveal] {
@@ -1301,47 +1257,25 @@ html.reveal-ready [data-reveal-delay="3"] {
 
 .alliances-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 12px;
 }
 
 .alliance-card {
   position: relative;
-  isolation: isolate;
   display: block;
-  min-height: 176px;
+  grid-column: span 2;
+  aspect-ratio: 2.35;
   overflow: hidden;
   padding: 0;
-  color: var(--alliance-text, #171717);
-  text-align: left;
-  background: #dedede;
+  background: transparent;
   border: 0;
   border-radius: 8px;
   cursor: pointer;
 }
 
-.alliance-card::before,
-.alliance-card::after {
-  position: absolute;
-  z-index: -1;
-  inset: 0;
-  content: "";
-}
-
-.alliance-card::before {
-  background-image: url("assets/hero-prime-market-temporary.png");
-  background-position: var(--alliance-position, center);
-  background-size: cover;
-  transition: transform 280ms ease;
-}
-
-.alliance-card::after {
-  background: var(--alliance-overlay);
-}
-
-.alliance-card:hover::before,
-.alliance-card:focus-visible::before {
-  transform: scale(1.045);
+.alliance-card:nth-child(n + 4) {
+  grid-column: span 3;
 }
 
 .alliance-card:focus-visible {
@@ -1349,97 +1283,44 @@ html.reveal-ready [data-reveal-delay="3"] {
   outline-offset: 3px;
 }
 
-.alliance-content {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  min-height: 176px;
-  padding: 24px;
-}
-
-.alliance-brand {
-  display: grid;
-  flex: 0 0 116px;
-  place-items: center;
-  min-height: 96px;
-  color: inherit;
-}
-
-.alliance-brand img {
+/* Full-image alliance tiles retain the existing button and drawer behavior. */
+.alliance-image {
   display: block;
   width: 100%;
-  max-width: 116px;
-  max-height: 88px;
-  object-fit: contain;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  transition: transform 280ms ease;
 }
 
-.alliance-copy {
-  max-width: 190px;
-  font-family: var(--font-medium);
-  font-size: 19px;
-  line-height: 1.16;
+.alliance-card:hover .alliance-image,
+.alliance-card:focus-visible .alliance-image {
+  transform: scale(1.035);
 }
 
-.alliance-copy strong {
-  display: block;
-  font-family: var(--font-bold);
-  font-weight: 800;
+.alliance-card--smiles .alliance-image {
+  background-image: url("assets/alliances-prime-placeholder-one.png");
+  background-position: center top;
 }
 
-.alliance-card--smiles {
-  --alliance-position: 84% center;
-  --alliance-overlay: linear-gradient(105deg, rgba(255, 247, 245, 0.95), rgba(255, 224, 230, 0.76));
+.alliance-card--shell .alliance-image {
+  background-image: url("assets/alliances-prime-placeholder-one.png");
+  background-position: center;
 }
 
-.alliance-card--shell {
-  --alliance-position: 18% center;
-  --alliance-overlay: linear-gradient(105deg, rgba(255, 247, 212, 0.96), rgba(255, 225, 136, 0.77));
+.alliance-card--365 .alliance-image {
+  background-image: url("assets/alliances-prime-placeholder-one.png");
+  background-position: center bottom;
 }
 
-.alliance-card--365 {
-  --alliance-position: 76% 38%;
-  --alliance-overlay: linear-gradient(105deg, rgba(255, 245, 249, 0.96), rgba(255, 211, 228, 0.77));
+.alliance-card--jumbo-mas .alliance-image {
+  background-image: url("assets/alliances-prime-placeholder-two.png");
+  background-position: center top;
 }
 
-.alliance-card--jumbo-mas {
-  --alliance-position: 40% 68%;
-  --alliance-overlay: linear-gradient(105deg, rgba(238, 255, 246, 0.96), rgba(193, 239, 211, 0.78));
-}
-
-.alliance-card--support {
-  --alliance-text: white;
-  --alliance-position: 72% center;
-  --alliance-overlay: linear-gradient(105deg, rgba(18, 137, 215, 0.92), rgba(26, 109, 203, 0.76));
-}
-
-.alliance-card--cabify {
-  --alliance-text: white;
-  --alliance-position: 36% center;
-  --alliance-overlay: linear-gradient(105deg, rgba(81, 42, 199, 0.94), rgba(142, 58, 218, 0.78));
-}
-
-.alliance-brand--365 {
-  width: 82px;
-  min-height: 82px;
-  color: white;
-  font-family: var(--font-black);
-  font-size: 31px;
-  line-height: 1;
-  background: #eb1919;
-  border-radius: 50%;
-}
-
-.alliance-brand--support {
-  color: white;
-  font-family: var(--font-black);
-  font-size: 28px;
-}
-
-.alliance-brand--cabify {
-  color: white;
-  font-family: var(--font-black);
-  font-size: 31px;
-  letter-spacing: 0;
+.alliance-card--support .alliance-image {
+  background-image: url("assets/alliances-prime-placeholder-two.png");
+  background-position: center;
 }
 
 .benefit-drawer {
@@ -1505,58 +1386,34 @@ html.reveal-ready [data-reveal-delay="3"] {
 }
 
 .drawer-logo {
-  display: grid;
-  place-items: center;
-  width: 104px;
-  height: 104px;
+  width: 148px;
+  aspect-ratio: 2.35;
   margin: 12px 0 28px;
-  padding: 14px;
-  background: white;
+  overflow: hidden;
+  background: #f3eef2;
   border: 1px solid rgba(178, 15, 133, 0.12);
   border-radius: 8px;
   box-shadow: 0 14px 34px rgba(44, 32, 48, 0.08);
 }
 
-.drawer-logo img {
+.drawer-image {
   display: block;
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
 }
 
-.drawer-wordmark {
-  display: inline-grid;
-  place-items: center;
-  min-width: 116px;
-  min-height: 72px;
-  color: var(--ink);
-  font-family: var(--font-black);
-  font-size: 32px;
+.drawer-image--top {
+  background-position: center top;
 }
 
-.drawer-wordmark--prime {
-  color: var(--magenta);
+.drawer-image--center {
+  background-position: center;
 }
 
-.drawer-wordmark--cabify {
-  color: #5a2bc6;
-}
-
-.drawer-wordmark--365 {
-  min-width: 72px;
-  min-height: 72px;
-  color: white;
-  font-size: 28px;
-  background: #eb1919;
-  border-radius: 50%;
-}
-
-.drawer-logo.is-row {
-  gap: 6px;
-}
-
-.drawer-logo.is-row img {
-  max-height: 28px;
+.drawer-image--bottom {
+  background-position: center bottom;
 }
 
 .drawer-eyebrow {
@@ -1662,6 +1519,7 @@ html.reveal-ready [data-reveal-delay="3"] {
   max-width: 1180px;
   min-height: 475px;
   margin: 0 auto;
+  overflow: hidden;
 }
 
 .carousel-stage {
@@ -2355,9 +2213,8 @@ html.reveal-ready [data-reveal-delay="3"] {
     gap: 12px;
   }
 
-  .monthly-card,
-  .monthly-card-content {
-    min-height: 220px;
+  .monthly-card {
+    min-height: 0;
   }
 
   .monthly-heading > p:last-child {
@@ -2368,21 +2225,13 @@ html.reveal-ready [data-reveal-delay="3"] {
     grid-template-columns: 1fr;
   }
 
-  .alliance-card,
-  .alliance-content {
-    min-height: 152px;
+  .alliance-card {
+    grid-column: span 1;
+    min-height: 0;
   }
 
-  .alliance-content {
-    padding: 20px;
-  }
-
-  .alliance-brand {
-    flex-basis: 96px;
-  }
-
-  .alliance-copy {
-    font-size: 18px;
+  .alliance-card:nth-child(n + 4) {
+    grid-column: span 1;
   }
 
   .prime-carousel-section {
@@ -2427,8 +2276,7 @@ html.reveal-ready [data-reveal-delay="3"] {
   }
 
   .drawer-logo {
-    width: 86px;
-    height: 86px;
+    width: 132px;
     margin-bottom: 22px;
   }
 
@@ -2436,5 +2284,18 @@ html.reveal-ready [data-reveal-delay="3"] {
     min-height: 64px;
     padding: 0 18px;
     font-size: 16px;
+  }
+}
+
+@media (max-width: 360px) {
+  .header-actions {
+    gap: 8px;
+  }
+
+  .subscribe-button,
+  .outline-button {
+    min-height: 42px;
+    padding: 0 12px;
+    font-size: 14px;
   }
 }

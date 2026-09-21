@@ -8,7 +8,7 @@ const benefitDetails = {
     title: "Doble acumulación Jumbo Más",
     description:
       "Sumá más puntos en tus compras online y aprovechá beneficios exclusivos para miembros activos de Jumbo Prime.",
-    logos: [{ src: "assets/logo-jumbo-mas.png", alt: "Jumbo Más" }],
+    image: { src: "assets/alliances-prime-placeholder-two.png", position: "top" },
     items: ["Doble puntaje en compras online elegibles.", "Canjeá puntos por beneficios.", "Acumulación asociada a tu cuenta Jumbo Más."],
   },
   shell: {
@@ -16,7 +16,7 @@ const benefitDetails = {
     title: "Doble acumulación Shell Box",
     description:
       "Aprovechá beneficios exclusivos en carga de combustible Shell V-Power durante los días comunicados.",
-    logos: [{ src: "assets/logo-shell-box.png", alt: "Shell Box" }],
+    image: { src: "assets/alliances-prime-placeholder-one.png", position: "center" },
     items: ["Beneficio exclusivo los jueves.", "Disponible en cargas participantes.", "Acumulación asociada a Shell Box."],
   },
   smiles: {
@@ -24,7 +24,7 @@ const benefitDetails = {
     title: "Millas bonus Smiles",
     description:
       "Canjeá tus puntos Jumbo Más por más millas durante semanas bonus y promociones especiales comunicadas.",
-    logos: [{ src: "assets/logo-smiles.png", alt: "Smiles" }],
+    image: { src: "assets/alliances-prime-placeholder-one.png", position: "top" },
     items: ["Semanas bonus comunicadas previamente.", "Canje desde Jumbo Más.", "Beneficio ideal para sumar millas más rápido."],
   },
   atencion: {
@@ -32,23 +32,15 @@ const benefitDetails = {
     title: "Canal exclusivo de atención",
     description:
       "Contá con un canal de atención pensado para acompañarte cuando necesitás resolver una consulta sobre tu membresía.",
-    logos: [{ text: "Prime", className: "drawer-wordmark--prime" }],
+    image: { src: "assets/alliances-prime-placeholder-two.png", position: "center" },
     items: ["Atención para consultas sobre tu membresía.", "Información sobre beneficios vigentes.", "Canales disponibles según las condiciones comunicadas."],
-  },
-  cabify: {
-    eyebrow: "Movilidad",
-    title: "Beneficios Cabify",
-    description:
-      "Accedé a beneficios especiales en viajes seleccionados, según las condiciones vigentes de la alianza.",
-    logos: [{ text: "cabify", className: "drawer-wordmark--cabify" }],
-    items: ["Descuentos sujetos a campañas vigentes.", "Aplicable en viajes y zonas participantes.", "Consultá las condiciones de cada beneficio."],
   },
   365: {
     eyebrow: "Experiencias",
     title: "Beneficios 365",
     description:
       "Disfrutá beneficios exclusivos en experiencias seleccionadas, de acuerdo con las condiciones de la alianza.",
-    logos: [{ text: "365", className: "drawer-wordmark--365" }],
+    image: { src: "assets/alliances-prime-placeholder-one.png", position: "bottom" },
     items: ["Experiencias y propuestas seleccionadas.", "Beneficios sujetos a vigencia.", "Consultá las condiciones antes de usarlo."],
   },
 };
@@ -87,22 +79,10 @@ if (benefitDrawer) {
     drawerEyebrow.textContent = detail.eyebrow;
     drawerTitle.textContent = detail.title;
     drawerDescription.textContent = detail.description;
-    drawerLogo.classList.toggle("is-row", detail.logos.length > 1);
-    drawerLogo.replaceChildren(
-      ...detail.logos.map((logo) => {
-        if (logo.text) {
-          const wordmark = document.createElement("span");
-          wordmark.className = `drawer-wordmark ${logo.className ?? ""}`.trim();
-          wordmark.textContent = logo.text;
-          return wordmark;
-        }
-
-        const image = document.createElement("img");
-        image.src = logo.src;
-        image.alt = logo.alt;
-        return image;
-      })
-    );
+    const drawerImage = document.createElement("span");
+    drawerImage.className = `drawer-image drawer-image--${detail.image.position}`;
+    drawerImage.style.backgroundImage = `url("${detail.image.src}")`;
+    drawerLogo.replaceChildren(drawerImage);
     drawerList.replaceChildren(
       ...detail.items.map((item) => {
         const listItem = document.createElement("li");

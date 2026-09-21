@@ -12,7 +12,7 @@
       rel="icon"
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%23b20f85'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Arial' font-size='30' font-weight='900' fill='white'%3EP%3C/text%3E%3C/svg%3E"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=mobile-overflow-guard" />
   </head>
   <body>
     <div class="jumbito-intro" data-intro aria-hidden="true">
@@ -335,37 +335,16 @@
           </header>
 
           <div class="monthly-grid">
-            <article class="monthly-card monthly-card--wine" data-scroll-reveal data-reveal-delay="1">
-              <div class="monthly-card-media" aria-hidden="true"></div>
-              <div class="monthly-card-content">
-                <p class="monthly-card-month">Vigente este mes</p>
-                <div>
-                  <h3>Bodega del mes</h3>
-                  <p>Una selección especial para compartir buenos momentos.</p>
-                </div>
-              </div>
+            <article class="monthly-card monthly-card--wine" data-scroll-reveal data-reveal-delay="1" aria-label="Bodega del mes">
+              <div class="monthly-card-image" aria-hidden="true"></div>
             </article>
 
-            <article class="monthly-card monthly-card--beer" data-scroll-reveal data-reveal-delay="2">
-              <div class="monthly-card-media" aria-hidden="true"></div>
-              <div class="monthly-card-content">
-                <p class="monthly-card-month">Vigente este mes</p>
-                <div>
-                  <h3>Cerveza del mes</h3>
-                  <p>Propuestas elegidas para disfrutar y descubrir cada mes.</p>
-                </div>
-              </div>
+            <article class="monthly-card monthly-card--beer" data-scroll-reveal data-reveal-delay="2" aria-label="Cerveza del mes">
+              <div class="monthly-card-image" aria-hidden="true"></div>
             </article>
 
-            <article class="monthly-card monthly-card--cheese" data-scroll-reveal data-reveal-delay="3">
-              <div class="monthly-card-media" aria-hidden="true"></div>
-              <div class="monthly-card-content">
-                <p class="monthly-card-month">Vigente este mes</p>
-                <div>
-                  <h3>Quesos del mes</h3>
-                  <p>Sabores seleccionados para armar una experiencia distinta.</p>
-                </div>
-              </div>
+            <article class="monthly-card monthly-card--cheese" data-scroll-reveal data-reveal-delay="3" aria-label="Quesos del mes">
+              <div class="monthly-card-image" aria-hidden="true"></div>
             </article>
           </div>
         </div>
@@ -379,53 +358,26 @@
           </header>
 
           <div class="alliances-grid">
-            <button class="alliance-card alliance-card--smiles" type="button" data-benefit-open="smiles">
-              <span class="alliance-content">
-                <span class="alliance-brand alliance-brand--smiles">
-                  <img src="assets/logo-smiles.png" alt="Smiles" loading="lazy" />
-                </span>
-                <span class="alliance-copy"><strong>Millas bonus</strong> en todos tus viajes</span>
-              </span>
+            <button class="alliance-card alliance-card--smiles" type="button" data-benefit-open="smiles" aria-label="Ver beneficio Smiles">
+              <span class="alliance-image" aria-hidden="true"></span>
             </button>
 
-            <button class="alliance-card alliance-card--shell" type="button" data-benefit-open="shell">
-              <span class="alliance-content">
-                <span class="alliance-brand alliance-brand--shell">
-                  <img src="assets/logo-shell-box.png" alt="Shell Box" loading="lazy" />
-                </span>
-                <span class="alliance-copy"><strong>Beneficios exclusivos</strong> en tus cargas</span>
-              </span>
+            <button class="alliance-card alliance-card--shell" type="button" data-benefit-open="shell" aria-label="Ver beneficio Shell Box">
+              <span class="alliance-image" aria-hidden="true"></span>
             </button>
 
-            <button class="alliance-card alliance-card--365" type="button" data-benefit-open="365">
-              <span class="alliance-content">
-                <span class="alliance-brand alliance-brand--365">365</span>
-                <span class="alliance-copy"><strong>Beneficios exclusivos</strong> en tus experiencias</span>
-              </span>
+            <button class="alliance-card alliance-card--365" type="button" data-benefit-open="365" aria-label="Ver beneficios 365">
+              <span class="alliance-image" aria-hidden="true"></span>
             </button>
 
-            <button class="alliance-card alliance-card--jumbo-mas" type="button" data-benefit-open="jumbo-mas">
-              <span class="alliance-content">
-                <span class="alliance-brand alliance-brand--jumbo-mas">
-                  <img src="assets/logo-jumbo-mas.png" alt="Jumbo Más" loading="lazy" />
-                </span>
-                <span class="alliance-copy"><strong>Doble acumulación</strong> de puntos J+ en compras virtuales</span>
-              </span>
+            <button class="alliance-card alliance-card--jumbo-mas" type="button" data-benefit-open="jumbo-mas" aria-label="Ver beneficio Jumbo Más">
+              <span class="alliance-image" aria-hidden="true"></span>
             </button>
 
-            <button class="alliance-card alliance-card--support" type="button" data-benefit-open="atencion">
-              <span class="alliance-content">
-                <span class="alliance-brand alliance-brand--support">Prime</span>
-                <span class="alliance-copy"><strong>Canal exclusivo</strong> de atención</span>
-              </span>
+            <button class="alliance-card alliance-card--support" type="button" data-benefit-open="atencion" aria-label="Ver canal exclusivo de atención">
+              <span class="alliance-image" aria-hidden="true"></span>
             </button>
 
-            <button class="alliance-card alliance-card--cabify" type="button" data-benefit-open="cabify">
-              <span class="alliance-content">
-                <span class="alliance-brand alliance-brand--cabify">cabify</span>
-                <span class="alliance-copy"><strong>25% dcto.</strong> en tus próximos viajes</span>
-              </span>
-            </button>
           </div>
         </div>
       </section>
@@ -517,6 +469,6 @@
       <p class="copyright">© 2026 Prime Regional. Todos los derechos reservados.</p>
     </footer>
 
-    <script src="script.js?v=page-reveal"></script>
+    <script src="script.js?v=alliances-five"></script>
   </body>
 </html>

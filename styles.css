@@ -1123,7 +1123,7 @@ a {
 }
 
 .monthly-section {
-  padding: clamp(58px, 8vw, 92px) clamp(20px, 6vw, 80px);
+  padding: clamp(24px, 2vw, 28px) clamp(20px, 6vw, 80px) clamp(58px, 8vw, 92px);
   background: #fff8fc;
 }
 
@@ -1492,7 +1492,8 @@ html.reveal-ready [data-reveal-delay="3"] {
 .prime-carousel-section {
   position: relative;
   isolation: isolate;
-  padding-block: clamp(64px, 8vw, 96px);
+  padding-top: clamp(64px, 8vw, 96px);
+  padding-bottom: clamp(10px, 1vw, 12px);
   background:
     radial-gradient(circle at 16% 20%, rgba(120, 191, 58, 0.1), transparent 28%),
     radial-gradient(circle at 84% 18%, rgba(178, 15, 133, 0.1), transparent 26%),

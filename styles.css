@@ -694,6 +694,12 @@ a {
   max-width: 1120px;
   height: 410px;
   margin: 0 auto;
+}
+
+.prime-benefit-viewport {
+  position: relative;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
 }
 
@@ -1103,11 +1109,11 @@ a {
 }
 
 .prime-benefit-control[data-prime-benefit-previous] {
-  left: -26px;
+  left: clamp(-60px, -6vw, -28px);
 }
 
 .prime-benefit-control[data-prime-benefit-next] {
-  right: -26px;
+  right: clamp(-60px, -6vw, -28px);
 }
 
 @keyframes prime-benefit-progress {
@@ -2114,7 +2120,8 @@ html.reveal-ready [data-reveal-delay="3"] {
   }
 
   .prime-benefit-carousel {
-    height: 660px;
+    width: calc(100% - 48px);
+    height: 720px;
   }
 
   .prime-benefit-slide {
@@ -2196,16 +2203,16 @@ html.reveal-ready [data-reveal-delay="3"] {
 
   .prime-benefit-control {
     top: 50%;
-    width: 44px;
-    height: 44px;
+    width: 42px;
+    height: 42px;
   }
 
   .prime-benefit-control[data-prime-benefit-previous] {
-    left: 8px;
+    left: -44px;
   }
 
   .prime-benefit-control[data-prime-benefit-next] {
-    right: 8px;
+    right: -44px;
   }
 
   .monthly-grid {
@@ -2297,5 +2304,38 @@ html.reveal-ready [data-reveal-delay="3"] {
     min-height: 42px;
     padding: 0 12px;
     font-size: 14px;
+  }
+
+  .prime-benefit-carousel {
+    height: 760px;
+  }
+
+  .prime-benefit-visual {
+    padding: 16px 18px;
+  }
+
+  .prime-benefit-visual strong {
+    font-size: 28px;
+  }
+
+  .prime-benefit-detail {
+    padding: 24px 18px 46px;
+  }
+
+  .prime-benefit-detail h3 {
+    font-size: 28px;
+  }
+
+  .prime-benefit-control {
+    width: 38px;
+    height: 38px;
+  }
+
+  .prime-benefit-control[data-prime-benefit-previous] {
+    left: -41px;
+  }
+
+  .prime-benefit-control[data-prime-benefit-next] {
+    right: -41px;
   }
 }

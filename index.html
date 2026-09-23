@@ -12,7 +12,7 @@
       rel="icon"
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%23b20f85'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Arial' font-size='30' font-weight='900' fill='white'%3EP%3C/text%3E%3C/svg%3E"
     />
-    <link rel="stylesheet" href="styles.css?v=offers-section-spacing-v2" />
+    <link rel="stylesheet" href="styles.css?v=shipping-comparison-v8" />
   </head>
   <body>
     <div class="jumbito-intro" data-intro aria-hidden="true">
@@ -78,176 +78,71 @@
 
       <section class="benefits-section" id="beneficios" aria-labelledby="benefits-title">
         <div class="section-heading">
+          <p class="benefits-kicker">Tu membresía Prime</p>
           <h2 id="benefits-title">Beneficios Prime</h2>
+          <p>Todo lo que necesitás para ahorrar y disfrutar más cada compra.</p>
         </div>
 
-        <div
-          class="prime-benefit-carousel"
-          data-prime-benefits
-          aria-roledescription="carrusel"
-          aria-label="Beneficios Prime"
-        >
-          <div class="prime-benefit-viewport">
-          <article class="prime-benefit-slide is-active" data-prime-benefit-slide aria-hidden="false">
-            <div class="prime-benefit-visual prime-benefit-visual--shipping">
-              <img src="assets/logo-envios.svg" alt="Envíos gratis" />
-              <p>Comprá más fácil,<br />recibí sin costo.</p>
-              <strong>Envíos<br />ilimitados</strong>
-            </div>
-            <div class="prime-benefit-detail">
-              <p class="prime-benefit-eyebrow">Envíos Prime</p>
-              <h3>Envíos gratis ilimitados</h3>
-              <p>Hacé tus compras presenciales y virtuales con envíos bonificados en pedidos que superen el mínimo vigente.</p>
-              <ul>
-                <li>Disponible para compras superiores a $60.000.</li>
-                <li>Válido en canales participantes.</li>
-                <li>Para disfrutar cada compra un poco más.</li>
-              </ul>
-            </div>
-          </article>
+        <div class="prime-benefits-grid">
+          <button class="prime-benefit-card prime-benefit-card--points" type="button" data-benefit-open="prime-points">
+            <span class="prime-benefit-card-visual prime-benefit-card-visual--points" aria-hidden="true">
+              <img src="assets/benefits/benefit-points-v1.png" alt="" />
+            </span>
+            <span class="prime-benefit-card-copy">
+              <span class="prime-benefit-card-eyebrow">Jumbo Más</span>
+              <strong>Doble acumulación de puntos</strong>
+              <span>Sumá el doble en tus compras online.</span>
+              <span class="prime-benefit-card-action">Mostrar más</span>
+            </span>
+          </button>
 
-          <article class="prime-benefit-slide" data-prime-benefit-slide aria-hidden="true">
-            <div class="prime-benefit-visual prime-benefit-visual--discounts">
-              <div class="prime-benefit-logo-row" aria-label="Jumbo, Disco y Cencopay Crédito">
-                <img src="assets/logo-jumbo.png" alt="Jumbo" />
-                <img src="assets/logo-disco.png" alt="Disco" />
-                <img src="assets/logo-cencopay-credito.svg" alt="Cencopay Crédito" />
-              </div>
-              <p>Más beneficios<br />en cada compra.</p>
-              <strong>Promos<br />exclusivas</strong>
-            </div>
-            <div class="prime-benefit-detail">
-              <p class="prime-benefit-eyebrow">Ahorro semanal</p>
-              <h3>Descuentos exclusivos</h3>
-              <p>Accedé a promociones seleccionadas todas las semanas en Jumbo y Disco, con beneficios especiales pagando con Cencopay.</p>
-              <ul>
-                <li>Promociones semanales para miembros Prime.</li>
-                <li>Beneficios en categorías seleccionadas.</li>
-                <li>Más ahorro usando medios de pago aliados.</li>
-              </ul>
-            </div>
-          </article>
+          <button class="prime-benefit-card prime-benefit-card--intro" type="button" data-benefit-open="prime-intro">
+            <span class="prime-benefit-card-visual prime-benefit-card-visual--intro" aria-hidden="true">
+              <img src="assets/benefits/benefit-welcome-v1.png" alt="" />
+            </span>
+            <span class="prime-benefit-card-copy">
+              <span class="prime-benefit-card-eyebrow">Bienvenida Prime</span>
+              <strong>50% en los primeros 3 meses</strong>
+              <span>Empezá a disfrutar Prime con un beneficio especial.</span>
+              <span class="prime-benefit-card-action">Mostrar más</span>
+            </span>
+          </button>
 
-          <article class="prime-benefit-slide" data-prime-benefit-slide aria-hidden="true">
-            <div class="prime-benefit-visual prime-benefit-visual--points">
-              <div class="prime-benefit-feature prime-benefit-feature--points">
-                <img src="assets/logo-jumbo-mas.png" alt="Jumbo Más" />
-                <span>J+</span>
-              </div>
-              <p>Con cada compra,<br />estás más cerca.</p>
-              <strong>Canjeá<br />tus puntos</strong>
-            </div>
-            <div class="prime-benefit-detail">
-              <p class="prime-benefit-eyebrow">Catálogo Prime</p>
-              <h3>Canjeá tus puntos J+</h3>
-              <p>Usá los puntos que acumulás para descubrir productos y opciones seleccionadas dentro del catálogo exclusivo para socios Prime.</p>
-              <ul>
-                <li>Encontrá productos elegibles para canjear.</li>
-                <li>Seguí sumando puntos con tus compras.</li>
-                <li>Consultá las opciones disponibles en cada momento.</li>
-              </ul>
-            </div>
-          </article>
+          <button class="prime-benefit-card prime-benefit-card--birthday" type="button" data-benefit-open="prime-birthday">
+            <span class="prime-benefit-card-visual prime-benefit-card-visual--birthday" aria-hidden="true">
+              <img src="assets/benefits/benefit-birthday-v1.png" alt="" />
+            </span>
+            <span class="prime-benefit-card-copy">
+              <span class="prime-benefit-card-eyebrow">Especial para vos</span>
+              <strong>Beneficio exclusivo en tu cumpleaños</strong>
+              <span>Celebrá tu mes con una sorpresa para socios Prime.</span>
+              <span class="prime-benefit-card-action">Mostrar más</span>
+            </span>
+          </button>
 
-          <article class="prime-benefit-slide" data-prime-benefit-slide aria-hidden="true">
-            <div class="prime-benefit-visual prime-benefit-visual--experiences">
-              <div class="prime-benefit-feature prime-benefit-feature--experiences" aria-hidden="true">
-                <span>Gastronomía</span>
-                <span>Viajes</span>
-                <span>Tiempo libre</span>
-              </div>
-              <p>Planes para salir<br />de la rutina.</p>
-              <strong>Experiencias<br />únicas</strong>
-            </div>
-            <div class="prime-benefit-detail">
-              <p class="prime-benefit-eyebrow">Catálogo Prime</p>
-              <h3>Experiencias para disfrutar</h3>
-              <p>Accedé a propuestas pensadas para sumar momentos: gastronomía, viajes, entretenimiento y mucho más.</p>
-              <ul>
-                <li>Opciones seleccionadas para socios Prime.</li>
-                <li>Nuevas experiencias según cada temporada.</li>
-                <li>Información y condiciones disponibles en el catálogo.</li>
-              </ul>
-            </div>
-          </article>
+          <button class="prime-benefit-card prime-benefit-card--offers" type="button" data-benefit-open="prime-daily-offers">
+            <span class="prime-benefit-card-visual prime-benefit-card-visual--offers" aria-hidden="true">
+              <img src="assets/benefits/benefit-offers-v1.png" alt="" />
+            </span>
+            <span class="prime-benefit-card-copy">
+              <span class="prime-benefit-card-eyebrow">Ahorro diario</span>
+              <strong>Ofertas exclusivas todos los días</strong>
+              <span>Encontrá promociones pensadas para aprovechar cada compra.</span>
+              <span class="prime-benefit-card-action">Mostrar más</span>
+            </span>
+          </button>
 
-          <article class="prime-benefit-slide" data-prime-benefit-slide aria-hidden="true">
-            <div class="prime-benefit-visual prime-benefit-visual--catalog-discounts">
-              <div class="prime-benefit-feature prime-benefit-feature--discounts" aria-hidden="true">
-                <span>Beneficios</span>
-                <strong>+</strong>
-                <span>Marcas aliadas</span>
-              </div>
-              <p>Siempre hay algo<br />para aprovechar.</p>
-              <strong>Más ahorro<br />para vos</strong>
-            </div>
-            <div class="prime-benefit-detail">
-              <p class="prime-benefit-eyebrow">Catálogo Prime</p>
-              <h3>Beneficios imperdibles</h3>
-              <p>Descubrí descuentos especiales y propuestas de marcas aliadas para hacer rendir más cada compra.</p>
-              <ul>
-                <li>Promociones y beneficios comunicados para socios.</li>
-                <li>Marcas, categorías y vigencias seleccionadas.</li>
-                <li>Todo reunido en un solo lugar.</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="prime-benefit-slide" data-prime-benefit-slide aria-hidden="true">
-            <div class="prime-benefit-visual prime-benefit-visual--home">
-              <div class="prime-benefit-feature prime-benefit-feature--home" aria-hidden="true">
-                <span>TEC</span>
-                <span>HOGAR</span>
-              </div>
-              <p>Elegí lo que necesitás<br />para tu día a día.</p>
-              <strong>Tecnología<br />y hogar</strong>
-            </div>
-            <div class="prime-benefit-detail">
-              <p class="prime-benefit-eyebrow">Catálogo Prime</p>
-              <h3>Tecnología y hogar</h3>
-              <p>Encontrá productos seleccionados para equipar, renovar o disfrutar más tu casa como socio Prime.</p>
-              <ul>
-                <li>Productos disponibles en categorías seleccionadas.</li>
-                <li>Opciones que se actualizan durante el año.</li>
-                <li>Consultá el catálogo para conocer los beneficios vigentes.</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="prime-benefit-slide" data-prime-benefit-slide aria-hidden="true">
-            <div class="prime-benefit-visual prime-benefit-visual--membership">
-              <div class="prime-benefit-feature prime-benefit-feature--membership" aria-label="Membresía desde $5.500 por mes">
-                <span>Desde</span>
-                <strong>$5.500</strong>
-                <span>por mes</span>
-              </div>
-              <p>Tu membresía, simple<br />para comprar y ahorrar.</p>
-              <strong>Más Prime<br />en cada pedido</strong>
-            </div>
-            <div class="prime-benefit-detail">
-              <p class="prime-benefit-eyebrow">Tu membresía</p>
-              <h3>Ahorrá desde el primer pedido</h3>
-              <p>Con Jumbo Prime tenés envíos bonificados en las compras que cumplen el mínimo vigente y más beneficios para aprovechar.</p>
-              <ul>
-                <li>Desde $5.500 por mes.</li>
-                <li>Envíos bonificados en pedidos elegibles.</li>
-                <li>Cancelá cuando quieras.</li>
-              </ul>
-            </div>
-          </article>
-
-          <div class="prime-benefit-progress" aria-hidden="true">
-            <span data-prime-benefit-progress></span>
-          </div>
-          </div>
-          <div class="prime-benefit-controls" aria-label="Cambiar beneficio">
-            <button class="prime-benefit-control" type="button" data-prime-benefit-previous aria-label="Ver beneficio anterior">
-              <span aria-hidden="true">&lsaquo;</span>
-            </button>
-            <button class="prime-benefit-control" type="button" data-prime-benefit-next aria-label="Ver siguiente beneficio">
-              <span aria-hidden="true">&rsaquo;</span>
-            </button>
-          </div>
+          <button class="prime-benefit-card prime-benefit-card--shipping" type="button" data-benefit-open="prime-shipping">
+            <span class="prime-benefit-card-visual prime-benefit-card-visual--shipping" aria-hidden="true">
+              <img src="assets/benefits/benefit-shipping-v1.png" alt="" />
+            </span>
+            <span class="prime-benefit-card-copy">
+              <span class="prime-benefit-card-eyebrow">Envíos Prime</span>
+              <strong>Envíos gratis ilimitados</strong>
+              <span>Recibí tus compras sin costo en pedidos que cumplan el mínimo vigente.</span>
+              <span class="prime-benefit-card-action">Mostrar más</span>
+            </span>
+          </button>
         </div>
       </section>
 
@@ -380,6 +275,72 @@
               <span class="alliance-image" aria-hidden="true"></span>
             </button>
 
+          </div>
+        </div>
+      </section>
+
+      <section class="shipping-comparison-section" id="envios" aria-labelledby="shipping-comparison-title">
+        <div class="shipping-comparison-inner">
+          <h2 class="sr-only" id="shipping-comparison-title">Ahorros y garantías de envíos Prime</h2>
+
+          <div class="shipping-comparison-layout">
+            <div class="shipping-costs" role="table" aria-label="Ejemplo de costos de envío con y sin Jumbo Prime">
+              <div class="shipping-costs-intro">
+                <h3>Ejemplo de costos de envío sin Prime</h3>
+                <p>Según tu frecuencia de compra</p>
+              </div>
+              <div class="shipping-cost-row shipping-cost-row--header" role="row">
+                <span role="columnheader">Envíos por mes</span>
+                <span role="columnheader">Con Prime</span>
+                <span role="columnheader">Sin Prime</span>
+              </div>
+              <div class="shipping-cost-row" role="row">
+                <span class="shipping-frequency" role="cell">
+                  <span>1 envío</span>
+                  <span class="shipping-trucks" aria-hidden="true"><img src="assets/benefits/shipping-truck-line-v1.png" alt="" /></span>
+                </span>
+                <strong role="cell">$0</strong>
+                <b role="cell">$3.999</b>
+              </div>
+              <div class="shipping-cost-row" role="row">
+                <span class="shipping-frequency" role="cell">
+                  <span>3 envíos</span>
+                  <span class="shipping-trucks" aria-hidden="true">
+                    <img src="assets/benefits/shipping-truck-line-v1.png" alt="" />
+                    <img src="assets/benefits/shipping-truck-line-v1.png" alt="" />
+                    <img src="assets/benefits/shipping-truck-line-v1.png" alt="" />
+                  </span>
+                </span>
+                <strong role="cell">$0</strong>
+                <b role="cell">$11.997</b>
+              </div>
+              <div class="shipping-cost-row" role="row">
+                <span class="shipping-frequency" role="cell">
+                  <span>5 envíos</span>
+                  <span class="shipping-trucks" aria-hidden="true">
+                    <img src="assets/benefits/shipping-truck-line-v1.png" alt="" />
+                    <img src="assets/benefits/shipping-truck-line-v1.png" alt="" />
+                    <img src="assets/benefits/shipping-truck-line-v1.png" alt="" />
+                    <img src="assets/benefits/shipping-truck-line-v1.png" alt="" />
+                    <img src="assets/benefits/shipping-truck-line-v1.png" alt="" />
+                  </span>
+                </span>
+                <strong role="cell">$0</strong>
+                <b role="cell">$19.995</b>
+              </div>
+            </div>
+
+            <aside class="shipping-guarantee" aria-labelledby="shipping-guarantee-title">
+              <span class="shipping-guarantee-seal" aria-hidden="true">
+                <img src="assets/benefits/guarantee-seal-v1.png" alt="" />
+              </span>
+              <div>
+                <h3 id="shipping-guarantee-title">Garantía asegurada</h3>
+                <strong>Tu ahorro está protegido.</strong>
+                <p>Si no ahorrás el valor de la membresía, te enviamos un cupón para tu próxima compra.</p>
+                <span>Consultá términos y condiciones.</span>
+              </div>
+            </aside>
           </div>
         </div>
       </section>

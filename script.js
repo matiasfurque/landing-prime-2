@@ -3,6 +3,66 @@ const intro = document.querySelector("[data-intro]");
 const benefitDrawer = document.querySelector("[data-benefit-drawer]");
 
 const benefitDetails = {
+  "prime-points": {
+    eyebrow: "Jumbo Más",
+    title: "Doble acumulación de puntos",
+    description:
+      "Sumá el doble de puntos Jumbo Más en las compras online que participen del beneficio Prime.",
+    image: { src: "assets/benefits/benefit-points-v1.png", square: true },
+    items: [
+      "Doble puntaje en compras online elegibles.",
+      "Los puntos se acreditan en tu cuenta Jumbo Más.",
+      "Consultá categorías y condiciones vigentes antes de comprar."
+    ]
+  },
+  "prime-intro": {
+    eyebrow: "Bienvenida Prime",
+    title: "50% en los primeros 3 meses",
+    description:
+      "Accedé a un beneficio especial de bienvenida durante los primeros tres meses de tu membresía Prime.",
+    image: { src: "assets/benefits/benefit-welcome-v1.png", square: true },
+    items: [
+      "Beneficio sujeto a condiciones de alta vigentes.",
+      "Disponible para nuevas suscripciones participantes.",
+      "El descuento se aplica durante los primeros tres meses."
+    ]
+  },
+  "prime-birthday": {
+    eyebrow: "Especial para vos",
+    title: "Beneficio exclusivo en tu cumpleaños",
+    description:
+      "Durante tu mes de cumpleaños vas a poder encontrar un beneficio especial pensado para celebrar siendo socio Prime.",
+    image: { src: "assets/benefits/benefit-birthday-v1.png", square: true },
+    items: [
+      "Beneficio comunicado durante el mes de cumpleaños.",
+      "Requiere una membresía Prime activa.",
+      "Consultá vigencia y condiciones cuando esté disponible."
+    ]
+  },
+  "prime-daily-offers": {
+    eyebrow: "Ahorro diario",
+    title: "Ofertas exclusivas todos los días",
+    description:
+      "Descubrí promociones exclusivas para socios Prime en categorías seleccionadas y aprovechá más cada compra.",
+    image: { src: "assets/benefits/benefit-offers-v1.png", square: true },
+    items: [
+      "Promociones renovadas según cada campaña.",
+      "Beneficios disponibles en productos seleccionados.",
+      "Revisá siempre los términos y vigencias comunicados."
+    ]
+  },
+  "prime-shipping": {
+    eyebrow: "Envíos Prime",
+    title: "Envíos gratis ilimitados",
+    description:
+      "Hacé tus compras con envíos bonificados en los pedidos que cumplan el mínimo vigente, todas las veces que los necesites.",
+    image: { src: "assets/benefits/benefit-shipping-v1.png", square: true },
+    items: [
+      "Disponible en compras superiores al mínimo informado.",
+      "Válido en canales y zonas participantes.",
+      "Consultá las condiciones antes de confirmar tu pedido."
+    ]
+  },
   "jumbo-mas": {
     eyebrow: "Puntos",
     title: "Doble acumulación Jumbo Más",
@@ -80,8 +140,11 @@ if (benefitDrawer) {
     drawerTitle.textContent = detail.title;
     drawerDescription.textContent = detail.description;
     const drawerImage = document.createElement("span");
-    drawerImage.className = `drawer-image drawer-image--${detail.image.position}`;
-    drawerImage.style.backgroundImage = `url("${detail.image.src}")`;
+    drawerImage.className = `drawer-image drawer-image--${detail.image.position || "center"}`;
+    if (detail.image.src) {
+      drawerImage.style.backgroundImage = `url("${detail.image.src}")`;
+    }
+    drawerLogo.classList.toggle("drawer-logo--square", detail.image.square === true);
     drawerLogo.replaceChildren(drawerImage);
     drawerList.replaceChildren(
       ...detail.items.map((item) => {
@@ -112,86 +175,12 @@ if (benefitDrawer) {
   });
 }
 
-const primeBenefits = document.querySelector("[data-prime-benefits]");
-
-if (primeBenefits) {
-  const slides = Array.from(primeBenefits.querySelectorAll("[data-prime-benefit-slide]"));
-  const progress = primeBenefits.querySelector("[data-prime-benefit-progress]");
-  const previous = primeBenefits.querySelector("[data-prime-benefit-previous]");
-  const next = primeBenefits.querySelector("[data-prime-benefit-next]");
-  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const rotationDuration = 5000;
-  let activeIndex = 0;
-  let rotationTimer;
-  let isPrimeBenefitPaused = false;
-
-  const renderPrimeBenefit = () => {
-    slides.forEach((slide, index) => {
-      const isActive = index === activeIndex;
-      slide.classList.toggle("is-active", isActive);
-      slide.setAttribute("aria-hidden", String(!isActive));
-    });
-
-    if (progress && !prefersReducedMotion) {
-      progress.classList.remove("is-running");
-      void progress.offsetWidth;
-      progress.classList.add("is-running");
-    }
-  };
-
-  const scheduleRotation = () => {
-    if (prefersReducedMotion || slides.length < 2) return;
-
-    window.clearTimeout(rotationTimer);
-    rotationTimer = window.setTimeout(() => {
-      activeIndex = (activeIndex + 1) % slides.length;
-      renderPrimeBenefit();
-      scheduleRotation();
-    }, rotationDuration);
-  };
-
-  const goToPrimeBenefit = (nextIndex) => {
-    activeIndex = (nextIndex + slides.length) % slides.length;
-    renderPrimeBenefit();
-    if (!isPrimeBenefitPaused) scheduleRotation();
-  };
-
-  const pausePrimeBenefits = () => {
-    isPrimeBenefitPaused = true;
-    window.clearTimeout(rotationTimer);
-    progress?.classList.add("is-paused");
-  };
-
-  const resumePrimeBenefits = () => {
-    if (prefersReducedMotion) return;
-
-    isPrimeBenefitPaused = false;
-    progress?.classList.remove("is-paused");
-    renderPrimeBenefit();
-    scheduleRotation();
-  };
-
-  renderPrimeBenefit();
-
-  previous?.addEventListener("click", () => goToPrimeBenefit(activeIndex - 1));
-  next?.addEventListener("click", () => goToPrimeBenefit(activeIndex + 1));
-
-  if (!prefersReducedMotion && slides.length > 1) {
-    scheduleRotation();
-    primeBenefits.addEventListener("mouseenter", pausePrimeBenefits);
-    primeBenefits.addEventListener("mouseleave", resumePrimeBenefits);
-    primeBenefits.addEventListener("focusin", pausePrimeBenefits);
-    primeBenefits.addEventListener("focusout", (event) => {
-      if (!primeBenefits.contains(event.relatedTarget)) resumePrimeBenefits();
-    });
-  }
-}
-
 const scrollRevealGroups = [
-  ".benefits-section .section-heading, .prime-benefit-carousel",
+  ".benefits-section .section-heading, .prime-benefits-grid, .prime-benefit-card",
   ".offers-section .section-heading, .prime-carousel",
   ".monthly-heading, .monthly-card",
   ".alliances-heading, .alliance-card",
+  ".shipping-costs, .shipping-guarantee",
   ".faq-inner",
   ".site-footer",
 ];
